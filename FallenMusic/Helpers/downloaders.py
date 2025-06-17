@@ -32,6 +32,7 @@ ydl_opts = {
     "quiet": True,
     "no_warnings": True,
     "prefer_ffmpeg": True,
+    "cookiefile": "cookies.txt",  # Use cookies for authentication
     "postprocessors": [
         {
             "key": "FFmpegExtractAudio",
