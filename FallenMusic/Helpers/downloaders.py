@@ -24,9 +24,6 @@ import os
 
 from yt_dlp import YoutubeDL
 
-# Extracted LOGIN_INFO cookie value from cookies.txt (line 7)
-LOGIN_INFO_VALUE = "AFmmF2swRQIgKLbSgkWPvNybp6wZubGNic63yz5HpTvd4HJAOBXNrFICIQC_HzGbolvM6DaXnw21NF6onp15h2AaSQm4EeKXTxiA5w:QUQ3MjNmeXBMZHRUZDBTUEdrTWh0RjVCTHBRVUhUWng4a3Zvb1ZXZnhWalVTYmZxMXZqVEZGbW8zNjQtRG5yQVhfWDlyRzVqekFKT0tHMnB1dnptZFBZZmRTU1JPNkRFcnlvbkM3ZkRmaTRSQkF4MUpjbk95ZVlNLUZZakVhb0Fvd1VUX0p0X2VGWmtITGFCckZSaENMRmZ1YUNqb0liN0FR"
-
 ydl_opts = {
     "format": "bestaudio/best",
     "outtmpl": "downloads/%(id)s.%(ext)s",
@@ -35,9 +32,7 @@ ydl_opts = {
     "quiet": True,
     "no_warnings": True,
     "prefer_ffmpeg": True,
-    "cookies": {
-        ".youtube.com": {"LOGIN_INFO": LOGIN_INFO_VALUE}
-    },
+    "cookiefile": "cookies.txt",  # Use all cookies from cookies.txt
     "postprocessors": [
         {
             "key": "FFmpegExtractAudio",
