@@ -1,0 +1,22 @@
+# nixpacks.toml
+# Configuration for building the Python application environment using Nixpacks on Railway.
+
+[phases.setup]
+# Installs system-level packages required by the application using Nix.
+# - ffmpeg: Required for audio/video processing (based on the ffmpeg buildpack in app.json).
+# - nodejs: Included as the nodejs buildpack was listed in app.json, potentially needed by some Python dependencies during build.
+# Nixpacks automatically includes appropriate Python versions based on project files (like requirements.txt).
+nixPkgs = ["...", "ffmpeg", "nodejs"]
+
+[phases.install]
+# Installs Python dependencies.
+# Nixpacks automatically detects requirements.txt and runs pip install.
+# Uncomment and modify the cmds below if you need custom installation steps.
+# cmds = ["pip install --upgrade pip", "pip install -r requirements.txt"]
+
+[start]
+# Defines the command to run the application.
+# This assumes your bot is started by running the FallenMusic module.
+# You MAY need to adjust this based on your project's actual entry point
+# (e.g., `python main.py`, `python bot.py`, etc.).
+cmd = "python -m FallenMusic"
